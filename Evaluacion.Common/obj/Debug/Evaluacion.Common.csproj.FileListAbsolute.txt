@@ -1,0 +1,6 @@
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\bin\Debug\Evaluacion.Common.dll
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\bin\Debug\Evaluacion.Common.pdb
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\obj\Debug\Evaluacion.Common.csprojAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\obj\Debug\Evaluacion.Common.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\obj\Debug\Evaluacion.Common.dll
+C:\Users\HP\Documents\Visual Studio 2019\TestProjects\Evaluacion_\Evaluacion.Agenda\Evaluacion.Common\obj\Debug\Evaluacion.Common.pdb

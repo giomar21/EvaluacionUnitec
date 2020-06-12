@@ -1,0 +1,64 @@
+﻿ul.pagination {
+    border: solid 1px #1662ed;
+    border-radius: 4px;
+}
+
+    ul.pagination li.pagination-page {
+        border-right: solid 1px #1662ed;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+li.pagination-page.ng-scope.active {
+    background-color: #1662ed;
+}
+
+li.pagination-page.ng-scope a {
+    color: #999;
+}
+
+
+li.pagination-page.ng-scope.active a {
+    color: #FFF;
+    font-weight: bold;
+}
+
+ul.pagination li.pagination-prev {
+    border-right: solid 1px #1662ed;
+    padding: 10px;
+}
+
+    ul.pagination li.pagination-prev a {
+        color: #F90;
+    }
+
+ul.pagination li.pagination-next {
+    border-right: solid 1px #1662ed;
+    padding: 10px;
+}
+
+    ul.pagination li.pagination-next a {
+        color: #F90;
+    }
+
+ul.pagination li.pagination-first {
+    border-right: solid 1px #1662ed;
+    padding: 10px;
+}
+
+    ul.pagination li.pagination-first a {
+        color: #1662ed;
+    }
+
+
+ul.pagination li.pagination-last {
+    padding: 10px;
+}
+
+    ul.pagination li.pagination-last a {
+        color: #1662ed;
+    }
+
+ul.pagination li {
+    padding: 10px;
+}

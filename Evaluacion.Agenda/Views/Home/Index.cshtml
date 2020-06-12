@@ -1,0 +1,145 @@
+﻿
+    <div ng-controller="GetContactosController">
+
+        <div class="row">
+            <div class="col-5 col-lg-3">
+                <button class="btn btn-primary" ng-click="crear()">Agregar contacto +</button>
+            </div>
+            <div class="col-1 col-lg-6"></div>
+            <div class="col-6 col-lg-3">
+                <input class="form-control float-right" type="text" placeholder="Buscar" ng-model="filter" ng-change="filtering()">
+            </div>
+            </div>
+
+            <table class="table mt-3 table-responsive-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Opciones</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="contacto in listContactos">
+                        <th>{{contacto.Nombre}} {{contacto.ApellidoPaterno}} {{contacto.ApellidoMaterno}}</th>
+                        <td>{{contacto.Direccion}}</td>
+                        <td>{{contacto.Telefono}}</td>
+                        <td>{{contacto.Email}}</td>
+                        <td>
+                            <button class="btn btn-outline-danger btn-sm" ng-click="eliminar(contacto.Id)">Eliminar</button>                         
+                        </td>
+                        <td>   
+                            <button class="btn btn-outline-primary btn-sm" ng-click="editar(contacto)">Editar</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <hr />
+            <nav aria-label="" class="mb-3">
+                <ul uib-pagination boundary-links="false" items-per-page="itemsPerPage" total-items="totalItems"
+                    ng-model="currentPage" ng-change="GetAll()" max-size="maxSize" class="pagination-sm float-right"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+            </nav>
+
+            <script type="text/ng-template" id="crearContactoModal.html">
+
+                .
+                <div class="modal-header alert-dark">
+                    <h5 class="modal-title">{{tipoOperacion}} contacto</h5>
+                </div>
+
+                <div ng-if="error_proceso" class="alert alert-danger" role="alert">
+                    {{error_message}}
+                </div>
+
+                <form>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" ng-model="contacto.Nombre" required maxlength="50">
+                            <div ng-if="error_form">
+                                <div ng-if="nombre_invalido">
+                                    <span class="badge badge-danger">El nombre es requerido</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="apellidoPaterno">Apellido paterno</label>
+                            <input type="text" class="form-control" id="apellidoPaterno" ng-model="contacto.ApellidoPaterno" required maxlength="50">
+                            <div ng-if="error_form">
+                                <div ng-if="apellido_invalido">
+                                    <span class="badge badge-danger">El apellido paterno es requerido</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="apellidoMaterno">Apellido materno</label>
+                            <input type="text" class="form-control" id="apellidoMaterno" ng-model="contacto.ApellidoMaterno" maxlength="50">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="direccion">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" ng-model="contacto.Direccion" maxlength="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="telefono">Teléfono</label>
+                            <input type="text" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" class="form-control" id="telefono" ng-model="contacto.Telefono" required maxlength="13">
+                            <div ng-if="error_form">
+                                <div ng-if="telefono_invalido">
+                                    <span class="badge badge-danger">El teléfono es requerido</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="email">Correo electrónico</label>
+                            <input type="text" class="form-control" id="email" ng-model="contacto.Email" maxlength="50">
+                            <div ng-if="error_form">
+                                <div ng-if="email_invalido">
+                                    <span class="badge badge-danger">El email no tiene un formato correcto</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+                        <button type="button" class="btn btn-primary" ng-click="submit()">{{tipoOperacionBtn}}</button>
+                    </div>
+                </form>
+
+
+            </script>
+
+            <script type="text/ng-template" id="deleteContactoModal.html">
+                .
+                <div class="modal-header alert-dark">
+                    <h5 class="modal-title">Confirmación</h5>
+                </div>
+                <div ng-if="error_proceso" class="alert alert-danger" role="alert">
+                    {{error_message}}
+                </div>
+
+                <div class="modal-body">
+                    <p>¿Está seguro que desea eliminar el contacto?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" ng-click="delete()">Eliminar</button>
+                </div>
+
+            </script>
+
+        </div>
